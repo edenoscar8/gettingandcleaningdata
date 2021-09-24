@@ -25,14 +25,14 @@ activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt", stringsAsFa
 names <- c("subject_id", features$V2, "activity_id")
 merge_train <- cbind(subject_train, X_train, y_train)
 merge_test <- cbind(subject_test, X_test, y_test)
-mergedata <- rbind(merge_train, merge_test)
-colnames(mergedata) <- names
+mergedataset <- rbind(merge_train, merge_test)
 
+colnames(mergedataset) <- names
 colnames(activity_labels) <- c("activity_id", "activity_name")
 
 ## Extract only the measurements on the mean and standard deviation for each measurement
 
-feature_mean_std <- mergedata[, grepl("subject_id|activity_id|mean|std", names)]
+feature_mean_std <- mergedataset[, grepl("subject_id|activity_id|mean|std", names)]
 
 ## Use descriptive activity names to name the activities in the data set
 
