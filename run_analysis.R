@@ -9,26 +9,26 @@ unzip("dataset.zip")
 
 ## read files
 
-X_train <- read.table("./UCI HAR Dataset/train/X_train.txt", sep = "", header = FALSE)
-y_train <- read.table("./UCI HAR Dataset/train/y_train.txt")
-subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt")
+X_train <- read.table("UCI HAR Dataset/train/X_train.txt", sep = "", header = FALSE)
+y_train <- read.table("UCI HAR Dataset/train/y_train.txt")
+subject_train <- read.table("UCI HAR Dataset/train/subject_train.txt")
 
-X_test <- read.table("./UCI HAR Dataset/test/X_test.txt")
-y_test <- read.table("./UCI HAR Dataset/test/y_test.txt")
-subject_test <- read.table("./UCI HAR Dataset/test/subject_test.txt")
+X_test <- read.table("UCI HAR Dataset/test/X_test.txt")
+y_test <- read.table("UCI HAR Dataset/test/y_test.txt")
+subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt")
 
-feature_name <- read.table("./UCI HAR Dataset/features.txt", stringsAsFactors = FALSE)
-activity_label <- read.table("UCI HAR Dataset/activity_labels.txt", stringsAsFactors = FALSE)
+features <- read.table("UCI HAR Dataset/features.txt", stringsAsFactors = FALSE)
+activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt", stringsAsFactors = FALSE)
 
 ## merge dataset and assign appropriate column names
 
-names <- c("subject_id", feature_name$V2, "activity_id")
+names <- c("subject_id", features$V2, "activity_id")
 merge_train <- cbind(subject_train, X_train, y_train)
 merge_test <- cbind(subject_test, X_test, y_test)
 mergedata <- rbind(merge_train, merge_test)
 colnames(mergedata) <- names
 
-colnames(activity_label) <- c("activity_id", "activity_name")
+colnames(activity_labels) <- c("activity_id", "activity_name")
 
 ## Extract only the measurements on the mean and standard deviation for each measurement
 
@@ -36,7 +36,7 @@ feature_mean_std <- mergedata[, grepl("subject_id|activity_id|mean|std", names)]
 
 ## Use descriptive activity names to name the activities in the data set
 
-feature_named_act <- merge(feature_mean_std, activity_label, by = "activity_id")
+feature_named_act <- merge(feature_mean_std, activity_labels, by = "activity_id")
 feature_named_act$"activity_id" = NULL
 
 ## Appropriately label the data set with descriptive variable names and write the new tidy data set. 
