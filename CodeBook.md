@@ -14,6 +14,10 @@
 ## Variable Names 
 
 
+### Identifiers
+* `subject_id`: The ID of the volunteer ranging from 1 - 30
+* `activity_name`: specific activities individuals were performing, includes: `WALKING`, `WALKING_UPSTAIRS`, `WALKING_DOWNSTAIRS`, `SITTING`, `STANDING`, `LAYING`
+
 ### feature detail
 * `tBodyAcc-mean()-X`
 * `tBodyAcc-mean()-Y`
