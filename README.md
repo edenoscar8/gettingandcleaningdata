@@ -1,4 +1,4 @@
-# getting-and-cleaning-data
+# Getting-and-Cleaning-Data
 ## This is the submission from Chengzong Huang to the course getting and cleaning data peer-graded project. 
 ### This repo includes: 1) a tidy data set; 2) a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md; 3) one R script called run_analysis.R that does the following:
  
